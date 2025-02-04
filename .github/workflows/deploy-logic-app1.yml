@@ -21,7 +21,7 @@ jobs:
       - name: Deploy Logic App using Bicep or ARM
         run: |
           az deployment group create \
-            --resource-group MyResourceGroup \
+            --resource-group niklasallard-rg \
             --template-file azuredeploy.bicep \
             --parameters @parameters.json
 
@@ -29,6 +29,6 @@ jobs:
         run: |
           zip -r logicapp.zip .
           az webapp deployment source config-zip \
-            --resource-group MyResourceGroup \
-            --name MyLogicApp \
+            --resource-group niklasallard-rg \
+            --name niklasallard-logicapp \
             --src logicapp.zip
