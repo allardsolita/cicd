@@ -40,7 +40,7 @@ jobs:
 
       - name: Deploy Logic App using ZIP
         run: |
-          az webapp deployment source config-zip \
+          az webapp deploy source config-zip \
             --resource-group niklasallard-rg \
             --name niklasallard-logicapp \
             --src build/logicapp.zip
