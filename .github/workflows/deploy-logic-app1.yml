@@ -25,10 +25,22 @@ jobs:
 #            --template-file azuredeploy.bicep \
 #            --parameters @parameters.json
 
-      - name: Deploy Logic App using ZIP (for function-based apps)
+#      - name: Deploy Logic App using ZIP (for function-based apps)
+#        run: |
+#          zip -r logicapp.zip .
+#          az webapp deployment source config-zip \
+#            --resource-group niklasallard-rg \
+#            --name niklasallard-logicapp \
+#            --src logicapp.zip
+
+      - name: Build and zip Logic App Standard
         run: |
-          zip -r logicapp.zip .
+          mkdir -p build
+          zip -r build/logicapp.zip . -x "*.git*"
+
+      - name: Deploy Logic App using ZIP
+        run: |
           az webapp deployment source config-zip \
             --resource-group niklasallard-rg \
             --name niklasallard-logicapp \
-            --src logicapp.zip
+            --src build/logicapp.zip
