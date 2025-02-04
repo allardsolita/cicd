@@ -30,5 +30,5 @@ jobs:
           zip -r logicapp.zip .
           az webapp deployment source config-zip \
             --resource-group niklasallard-rg \
-            --name niklasallard-logicapp1 \
+            --name niklasallard-logicapp \
             --src logicapp.zip
