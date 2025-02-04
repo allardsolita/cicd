@@ -33,7 +33,6 @@ jobs:
 #            --name niklasallard-logicapp \
 #            --src logicapp.zip
 
-
       - name: Build and zip Logic App Standard
         run: |
           mkdir -p build
